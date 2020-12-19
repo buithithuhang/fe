@@ -1,15 +1,17 @@
 <p>login works!</p>
-<form class="example-form">
+<div class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
+    <mat-label>Tên đăng nhập</mat-label>
+    <input matInput [(ngModel)]="username">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    <mat-label>Mật khẩu</mat-label>
+    <input matInput type="password" [(ngModel)]="password">
   </mat-form-field>
-</form>
+  <button mat-button (click)="login()">Đăng nhập</button>
+</div>
 
-<a [routerLink]="['/authentication/forgot-password']"> Forgot Password </a>
-<a [routerLink]="['/authentication/register']"> Register </a>
+
+<a [routerLink]="['/authentication/forgot-password']"> Lấy lại mật khẩu</a>
+<a [routerLink]="['/authentication/register']"> Đăng ký </a>
