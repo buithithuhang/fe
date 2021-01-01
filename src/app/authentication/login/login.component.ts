@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
     const user = {username: this.username, password: this.password} ;
      this.authService.login(user).subscribe((res: any) => {
       if (res.access_token) {
+        console.log(res);
         localStorage.setItem('authorization', res.access_token);
+        localStorage.setItem('site_id', res.site_id);
       }
       this.router.navigate(['./landing']);
     });

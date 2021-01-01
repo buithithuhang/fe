@@ -10,12 +10,44 @@ import { CheckListTemplateDefaultComponent } from './check-list-template-default
 import { CheckListTemplateDefaultItemComponent } from './check-list-template-default-item/check-list-template-default-item.component';
 import { TablePropertiesComponent } from './table-properties/table-properties.component';
 import { TemplateManagementRoutingModule } from './template-management-routing.module';
- 
+import { CheckListTemplateService } from './check-list-template/service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from 'src/app/material-module';
+import { CreateCheckListTemplateComponent } from './check-list-template/create/create.component';
+import { DeleteCheckListTemplateComponent } from './check-list-template/delete/delete.component';
+
 @NgModule({
-  declarations: [CheckListTemplateComponent, CheckListTemplateItemComponent, CheckStatusTemplateComponent, CleanStatusTemplateComponent, RoomStatusTemplateComponent, RoomTypeTemplateComponent, CheckListTemplateDefaultComponent, CheckListTemplateDefaultItemComponent, TablePropertiesComponent],
+  declarations: [
+
+    CheckListTemplateComponent,
+    CreateCheckListTemplateComponent,
+    DeleteCheckListTemplateComponent,
+
+    CheckListTemplateItemComponent,
+
+    CheckStatusTemplateComponent,
+
+    CleanStatusTemplateComponent,
+
+    RoomStatusTemplateComponent,
+
+    RoomTypeTemplateComponent,
+
+    CheckListTemplateDefaultComponent, 
+
+    CheckListTemplateDefaultItemComponent, 
+
+    TablePropertiesComponent],
   imports: [
     CommonModule,
-    TemplateManagementRoutingModule
-  ]
+    TemplateManagementRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [CheckListTemplateService],
+  
 })
 export class TemplateManagementModule { }

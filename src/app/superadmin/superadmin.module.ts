@@ -10,7 +10,8 @@ import { SuperadminComponent } from './superadmin/superadmin.component';
   declarations: [TemplateManagementComponent, SuperadminComponent],
   imports: [
     CommonModule,
-    SuperadminRoutingModule
+    SuperadminRoutingModule,
+    
   ]
 })
 export class SuperadminModule { }
