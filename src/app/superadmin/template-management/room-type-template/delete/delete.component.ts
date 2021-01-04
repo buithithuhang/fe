@@ -1,17 +1,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HotelService } from '../hotel.service';
+import { RoomTypeTemplateService } from '../room-type-template.service';
 
 @Component({
-    selector: 'delete-hotel',
+    selector: 'delete-room-type-template',
     templateUrl: 'delete.component.html',
     styleUrls: ['delete.component.scss']
 })
 
-export class DeleteComponent implements OnInit {
+export class DeleteRoomTypeTemplateComponent implements OnInit {
     constructor(
-        private service: HotelService,
-        public dialogRef: MatDialogRef<DeleteComponent>,
+        private service: RoomTypeTemplateService,
+        public dialogRef: MatDialogRef<DeleteRoomTypeTemplateComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() { }

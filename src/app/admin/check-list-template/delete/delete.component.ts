@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HotelService } from '../hotel.service';
+import { CheckListTemplateService } from '../check-list-template.service';
 
 @Component({
     selector: 'delete-hotel',
@@ -8,10 +8,10 @@ import { HotelService } from '../hotel.service';
     styleUrls: ['delete.component.scss']
 })
 
-export class DeleteComponent implements OnInit {
+export class DeleteCheckListTemplateComponent implements OnInit {
     constructor(
-        private service: HotelService,
-        public dialogRef: MatDialogRef<DeleteComponent>,
+        private service: CheckListTemplateService,
+        public dialogRef: MatDialogRef<DeleteCheckListTemplateComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCheckListTemplateComponent } from './create/create.component';
 import { DeleteCheckListTemplateComponent } from './delete/delete.component';
-import { CheckListTemplateService } from './service';
+import { CheckListTemplateService } from './check-list-template.service';
 
 @Component({
   selector: 'app-check-list-template',

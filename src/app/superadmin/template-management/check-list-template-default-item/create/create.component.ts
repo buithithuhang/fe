@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HotelService } from '../hotel.service';
+import { CheckListTemplateDefaultItemService } from '../service';
 
 @Component({
     selector: 'create-hotel',
@@ -8,10 +8,10 @@ import { HotelService } from '../hotel.service';
     styleUrls: ['create.component.scss']
 })
 
-export class CreateComponent implements OnInit {
+export class CreateCheckListTemplateDefaultItemComponent implements OnInit {
     constructor(
-        private service: HotelService,
-        public dialogRef: MatDialogRef<CreateComponent>,
+        private service: CheckListTemplateDefaultItemService,
+        public dialogRef: MatDialogRef<CreateCheckListTemplateDefaultItemComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {
@@ -23,9 +23,10 @@ export class CreateComponent implements OnInit {
     ngOnInit() {
         console.log(this.data);
         // get properites
-        this.properties = this.data.properties.data.properties;
-        this.columns = Object.keys(this.data.properties.data.properties);
+        this.properties = this.data.properties;
+        this.columns = Object.keys(this.data.properties);
         this.dataSource = this.data.dataSource || {};
+        this.dataSource.check_list_template_default_id = this.data.check_list_template_default_id;
         // set to form control
 
 

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckListTemplateDefaultItemComponent } from './check-list-template-default-item/check-list-template-default-item.component';
 import { CheckListTemplateDefaultComponent } from './check-list-template-default/check-list-template-default.component';
-import { CheckListTemplateItemComponent } from './check-list-template-item/check-list-template-item.component';
-import { CheckListTemplateComponent } from './check-list-template/check-list-template.component';
 import { CheckStatusTemplateComponent } from './check-status-template/check-status-template.component';
 import { CleanStatusTemplateComponent } from './clean-status-template/clean-status-template.component';
 import { RoomStatusTemplateComponent } from './room-status-template/room-status-template.component';
@@ -16,14 +14,13 @@ const routes: Routes = [
   {
     path: '', pathMatch: '**', component: TemplateManagementComponent, children: [
       { path: '', redirectTo: 'check-list-template', pathMatch: '**' },
-      { path: 'check-list-template', component: CheckListTemplateComponent, },
-      { path: 'check-list-template-item', component: CheckListTemplateItemComponent, },
+      { path: 'check-list-template', component: CheckListTemplateDefaultComponent, },
+      { path: 'check-list-template-default-item/:id', component: CheckListTemplateDefaultItemComponent, },
       { path: 'check-status-template', component: CheckStatusTemplateComponent, },
       { path: 'clean-status-template', component: CleanStatusTemplateComponent, },
       { path: 'room-status-template', component: RoomStatusTemplateComponent, },
       { path: 'room-type-template', component: RoomTypeTemplateComponent, },
-      { path: 'check-list-template-default', component: CheckListTemplateDefaultComponent, },
-      { path: 'check-list-template-default-item', component: CheckListTemplateDefaultItemComponent, },
+      //{ path: 'check-list-template-default-item', component: CheckListTemplateDefaultItemComponent, },
       { path: 'table-properties', component: TablePropertiesComponent, },
     ]
   },

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckListTemplateDefaultComponent } from './check-list-template-default.component';
 
-describe('CheckListTemplateDefaultComponent', () => {
+describe('CheckListTemplateComponent', () => {
   let component: CheckListTemplateDefaultComponent;
   let fixture: ComponentFixture<CheckListTemplateDefaultComponent>;
 

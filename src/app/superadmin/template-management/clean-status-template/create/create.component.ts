@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HotelService } from '../hotel.service';
+import { CleanStatusTemplateService } from '../clean-status-template.service';
 
 @Component({
     selector: 'create-hotel',
@@ -8,10 +8,10 @@ import { HotelService } from '../hotel.service';
     styleUrls: ['create.component.scss']
 })
 
-export class CreateComponent implements OnInit {
+export class CreateCleanStatusTemplateComponent implements OnInit {
     constructor(
-        private service: HotelService,
-        public dialogRef: MatDialogRef<CreateComponent>,
+        private service: CleanStatusTemplateService,
+        public dialogRef: MatDialogRef<CreateCleanStatusTemplateComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {
@@ -23,8 +23,8 @@ export class CreateComponent implements OnInit {
     ngOnInit() {
         console.log(this.data);
         // get properites
-        this.properties = this.data.properties.data.properties;
-        this.columns = Object.keys(this.data.properties.data.properties);
+        this.properties = this.data.properties;
+        this.columns = Object.keys(this.data.properties);
         this.dataSource = this.data.dataSource || {};
         // set to form control
 
