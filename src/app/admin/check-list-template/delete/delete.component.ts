@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CheckListTemplateService } from '../check-list-template.service';
 
 @Component({
-    selector: 'delete-hotel',
+    selector: 'delete-check-list-template',
     templateUrl: 'delete.component.html',
     styleUrls: ['delete.component.scss']
 })

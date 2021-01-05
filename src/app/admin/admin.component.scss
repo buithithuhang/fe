@@ -1,0 +1,15 @@
+.inline {
+    display: flex;
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

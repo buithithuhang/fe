@@ -1,2 +1,23 @@
 <p>admin works!</p>
-<router-outlet></router-outlet>
+<div class="inline">
+  <div class="sidebar">
+    <mat-list>
+      <mat-list-item> <a [routerLink]="['/admin/hotel']"> Khách sạn </a> </mat-list-item>
+
+      <mat-list-item (click)="isShowCategoryMenu = !isShowCategoryMenu"> 
+        <mat-icon *ngIf="isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
+        Danh mục </mat-list-item>
+      <mat-list-item>
+        <mat-list *ngIf="isShowCategoryMenu">
+            <mat-list-item> <a [routerLink]="['/admin/room-status']"> Trạng thái phòng </a> </mat-list-item>
+            <mat-list-item> <a [routerLink]="['/admin/clean-status']"> Trạng thái dọn dẹp </a> </mat-list-item>
+            <mat-list-item> <a [routerLink]="['/admin/check-status']"> Trạng thái kiểm tra </a> </mat-list-item>            
+        </mat-list>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

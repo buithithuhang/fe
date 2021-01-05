@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CleanStatusTemplateService } from '../clean-status-template.service';
 
 @Component({
-    selector: 'create-hotel',
+    selector: 'create-clean-status-template',
     templateUrl: 'create.component.html',
     styleUrls: ['create.component.scss']
 })

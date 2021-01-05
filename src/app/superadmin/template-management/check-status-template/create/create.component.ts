@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CheckStatusTemplateService } from '../check-status-template.service';
 
 @Component({
-    selector: 'create-hotel',
+    selector: 'create-check-status-template',
     templateUrl: 'create.component.html',
     styleUrls: ['create.component.scss']
 })
