@@ -1,17 +1,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CleanService } from '../clean.service';
+import { UserService } from '../user.service';
 
 @Component({
-    selector: 'delete-clean',
+    selector: 'delete-user',
     templateUrl: 'delete.component.html',
     styleUrls: ['delete.component.scss']
 })
 
-export class DeleteCleanComponent implements OnInit {
+export class DeleteUserComponent implements OnInit {
     constructor(
-        private service: CleanService,
-        public dialogRef: MatDialogRef<DeleteCleanComponent>,
+        private service: UserService,
+        public dialogRef: MatDialogRef<DeleteUserComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() { }

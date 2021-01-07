@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class CustomerService {
-    table = 'customer';
-    url = 'http://localhost:3001/customer';
+export class UserService {
+    table = 'user';
+    url = 'http://localhost:3001/user';
     propertiesUrl = ''
     constructor(private http: HttpClient) { }
 

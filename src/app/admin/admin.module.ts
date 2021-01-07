@@ -50,6 +50,10 @@ import { DeleteCustomerComponent } from './customer/delete/delete.component';
 import { CreateCustomerComponent } from './customer/create/create.component';
 import { CustomerComponent } from './customer/customer.component';
 import { PublicAreaService } from './public-area/public-area.service';
+import { UserComponent } from './user/user.component';
+import { CreateUserComponent } from './user/create/create.component';
+import { DeleteUserComponent } from './user/delete/delete.component';
+import { UserService } from './user/user.service';
 
 @NgModule({
   declarations: [
@@ -97,6 +101,10 @@ import { PublicAreaService } from './public-area/public-area.service';
     CustomerComponent,
     CreateCustomerComponent,
     DeleteCustomerComponent,
+    
+    UserComponent,
+    CreateUserComponent,
+    DeleteUserComponent,
   ],
   imports: [
     CommonModule,
@@ -117,7 +125,8 @@ import { PublicAreaService } from './public-area/public-area.service';
     HotelService,
     CleanService,
     CustomerService,
-    PublicAreaService
+    PublicAreaService,
+    UserService
   ]
 })
 export class AdminModule { }

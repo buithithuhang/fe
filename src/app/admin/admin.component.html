@@ -3,7 +3,8 @@
   <div class="sidebar">
     <mat-list>
       <mat-list-item> <a [routerLink]="['/admin/hotel']"> Khách sạn </a> </mat-list-item>
-
+      <mat-list-item> <a [routerLink]="['/admin/user']"> Nhân viên </a> </mat-list-item>
+      <mat-list-item> <a [routerLink]="['/admin/customer']"> Khách hàng </a> </mat-list-item>
       <mat-list-item (click)="isShowCategoryMenu = !isShowCategoryMenu"> 
         <mat-icon *ngIf="isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
@@ -11,6 +12,7 @@
       <mat-list-item>
         <mat-list *ngIf="isShowCategoryMenu">
             <mat-list-item> <a [routerLink]="['/admin/room-status']"> Trạng thái phòng </a> </mat-list-item>
+            <mat-list-item> <a [routerLink]="['/admin/room-type']"> Loại phòng </a> </mat-list-item>
             <mat-list-item> <a [routerLink]="['/admin/clean-status']"> Trạng thái dọn dẹp </a> </mat-list-item>
             <mat-list-item> <a [routerLink]="['/admin/check-status']"> Trạng thái kiểm tra </a> </mat-list-item>            
         </mat-list>

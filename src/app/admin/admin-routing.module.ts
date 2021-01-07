@@ -12,6 +12,7 @@ import { RoomComponent } from './room/room.component';
 import { CleanComponent } from './clean/clean.component';
 import { CustomerComponent } from './customer/customer.component';
 import { PublicAreaComponent } from './public-area/public-area.component';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
       { path: 'hotel', component: HotelComponent, },     
       { path: 'public-area', component: PublicAreaComponent, },     
       { path: 'clean', component: CleanComponent, },     
-      { path: 'customer', component: CustomerComponent, }
+      { path: 'customer', component: CustomerComponent, },     
+      { path: 'user', component: UserComponent, }
       ,]}
 ];
 
