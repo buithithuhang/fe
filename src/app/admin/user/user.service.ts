@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserService {
     table = 'user';
-    url = 'http://localhost:3001/user';
+    url = 'http://localhost:3000/user';
     propertiesUrl = ''
     constructor(private http: HttpClient) { }
 

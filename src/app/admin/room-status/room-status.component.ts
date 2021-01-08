@@ -25,10 +25,10 @@ export class RoomStatusComponent implements OnInit {
       this.columnsToDisplay.push('action');
     })
    
-    this.getHotels();
+    this.getDatasource();
   }
 
-  getHotels() {
+  getDatasource() {
  // set datasource
  this.service.all().subscribe((res: any) => {
   this.dataSource = res.data;
@@ -48,7 +48,7 @@ export class RoomStatusComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getHotels();
+      this.getDatasource();
     });
   }
   confirmDialog(dataSource?: any): void {
@@ -60,7 +60,7 @@ export class RoomStatusComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getHotels();
+      this.getDatasource();
     });
   }
 }

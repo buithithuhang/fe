@@ -24,10 +24,10 @@ export class CheckStatusTemplateComponent implements OnInit {
       this.columnsToDisplay.push('action');
     })
    
-    this.getHotels();
+    this.getDatasource();
   }
 
-  getHotels() {
+  getDatasource() {
  // set datasource
  this.service.all().subscribe((res: any) => {
   this.dataSource = res.data;
@@ -47,7 +47,7 @@ export class CheckStatusTemplateComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
 
-      this.getHotels();
+      this.getDatasource();
     });
   }
   confirmDialog(dataSource?: any): void {
@@ -59,7 +59,7 @@ export class CheckStatusTemplateComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
 
-      this.getHotels();
+      this.getDatasource();
     });
   }
 }
