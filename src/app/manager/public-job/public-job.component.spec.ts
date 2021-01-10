@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScheduleJobPublicComponent } from './schedule-job-public.component';
+import { PublicJobComponent } from './public-job.component';
 
-describe('ScheduleJobPublicComponent', () => {
-  let component: ScheduleJobPublicComponent;
-  let fixture: ComponentFixture<ScheduleJobPublicComponent>;
+describe('PublicJobComponent', () => {
+  let component: PublicJobComponent;
+  let fixture: ComponentFixture<PublicJobComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScheduleJobPublicComponent ]
+      declarations: [ PublicJobComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScheduleJobPublicComponent);
+    fixture = TestBed.createComponent(PublicJobComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

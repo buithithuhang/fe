@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { CreateRoomComponent } from './create/create.component';
 import { DeleteRoomComponent } from './delete/delete.component';
 import { RoomService } from './room.service';
@@ -11,28 +12,34 @@ import { RoomService } from './room.service';
 })
 export class RoomComponent implements OnInit {
 
-  
-  constructor(private service: RoomService, public dialog: MatDialog) {
+
+  constructor(
+    public route: ActivatedRoute,
+    private service: RoomService, public dialog: MatDialog) {
 
   }
-
+  fid: any;
+  hid: any;
   ngOnInit(): void {
     //get table properties
+
+    this.fid = this.route.snapshot.paramMap.get('fid');
+    this.hid = this.route.snapshot.paramMap.get('hid');
     this.service.getProperties().subscribe((res: any) => {
       // change column display
       this.properties = res.data.properties;
       this.columnsToDisplay = Object.keys(res.data.properties);
       this.columnsToDisplay.push('action');
     })
-   
+
     this.getDatasource();
   }
 
   getDatasource() {
- // set datasource
- this.service.all().subscribe((res: any) => {
-  this.dataSource = res.data;
-})
+    // set datasource
+    this.service.all().subscribe((res: any) => {
+      this.dataSource = res.data;
+    })
   }
 
   dataSource: any;
@@ -42,7 +49,7 @@ export class RoomComponent implements OnInit {
   openDialog(dataSource?: any): void {
     const dialogRef = this.dialog.open(CreateRoomComponent, {
       width: '550px',
-      data: {properties: this.properties, dataSource}
+      data: { properties: this.properties, dataSource, fid: this.fid, hid: this.hid }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -54,7 +61,7 @@ export class RoomComponent implements OnInit {
   confirmDialog(dataSource?: any): void {
     const dialogRef = this.dialog.open(DeleteRoomComponent, {
       width: '550px',
-      data: {properties: this.properties, dataSource}
+      data: { properties: this.properties, dataSource }
     });
 
     dialogRef.afterClosed().subscribe(result => {

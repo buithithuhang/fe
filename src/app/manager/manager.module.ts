@@ -10,12 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { AssignmentService } from './assignment/assignment.service';
-import { ScheduleJobPublicComponent } from './schedule-job-public/schedule-job-public.component';
-import { ScheduleJobPublicService } from './schedule-job-public/schedule-job-public.service';
+import { PublicJobComponent } from './public-job/public-job.component';
+import { PublicJobService } from './public-job/public-job.service';
 
 
 @NgModule({
-  declarations: [ManagerComponent, ScheduleJobComponent, ScheduleJobPublicComponent, AssignmentComponent],
+  declarations: [ManagerComponent, ScheduleJobComponent, PublicJobComponent,AssignmentComponent],
   imports: [
     CommonModule,
     ManagerRoutingModule,
@@ -26,7 +26,7 @@ import { ScheduleJobPublicService } from './schedule-job-public/schedule-job-pub
   ],
   providers: [
     ScheduleJobService,
-    ScheduleJobPublicService,
+    PublicJobService,
     AssignmentService
   ]
 })
