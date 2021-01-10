@@ -1,0 +1,19 @@
+.inline {
+    display: flex;
+}
+.list-room {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+
+.list-public {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+.mat-form-field{
+    margin: 2px;
+}

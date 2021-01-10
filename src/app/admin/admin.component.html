@@ -1,23 +1,34 @@
 <p>admin works!</p>
 <div class="inline">
   <div class="sidebar">
-    <mat-list>
-      <mat-list-item> <a [routerLink]="['/admin/hotel']"> Khách sạn </a> </mat-list-item>
-      <mat-list-item> <a [routerLink]="['/admin/user']"> Nhân viên </a> </mat-list-item>
-      <mat-list-item> <a [routerLink]="['/admin/customer']"> Khách hàng </a> </mat-list-item>
-      <mat-list-item (click)="isShowCategoryMenu = !isShowCategoryMenu"> 
-        <mat-icon *ngIf="isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_up</mat-icon>
-        <mat-icon *ngIf="!isShowCategoryMenu" aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
-        Danh mục </mat-list-item>
-      <mat-list-item>
-        <mat-list *ngIf="isShowCategoryMenu">
-            <mat-list-item> <a [routerLink]="['/admin/room-status']"> Trạng thái phòng </a> </mat-list-item>
-            <mat-list-item> <a [routerLink]="['/admin/room-type']"> Loại phòng </a> </mat-list-item>
-            <mat-list-item> <a [routerLink]="['/admin/clean-status']"> Trạng thái dọn dẹp </a> </mat-list-item>
-            <mat-list-item> <a [routerLink]="['/admin/check-status']"> Trạng thái kiểm tra </a> </mat-list-item>            
-        </mat-list>
-      </mat-list-item>
-    </mat-list>
+    <div class="mat-list">
+      <div class="mat-list-item"> <a [routerLink]="['/admin/hotel']"> Khách sạn </a> </div>
+      <div class="mat-list-item"> <a [routerLink]="['/admin/user']"> Nhân viên </a> </div>
+      <div class="mat-list-item"> <a [routerLink]="['/admin/customer']"> Khách hàng </a> </div>
+      <!-- <div class="mat-list-item"> </div> -->
+      <div class="mat-list-item">
+        <div (click)="isShowCategoryMenu = !isShowCategoryMenu" style="display: flex; cursor: pointer;">
+          <div [hidden]="!isShowCategoryMenu">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_up
+            </mat-icon>
+          </div>
+          <div [hidden]="isShowCategoryMenu">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down
+            </mat-icon>
+          </div>
+
+          Danh mục
+        </div>
+        <div *ngIf="isShowCategoryMenu">
+          <div class="mat-list">
+            <div class="mat-list-item"> <a [routerLink]="['/admin/room-status']"> Trạng thái phòng </a> </div>
+            <div class="mat-list-item"> <a [routerLink]="['/admin/room-type']"> Loại phòng </a> </div>
+            <div class="mat-list-item"> <a [routerLink]="['/admin/clean-status']"> Trạng thái dọn dẹp </a> </div>
+            <div class="mat-list-item"> <a [routerLink]="['/admin/check-status']"> Trạng thái kiểm tra </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="container">
     <router-outlet></router-outlet>
