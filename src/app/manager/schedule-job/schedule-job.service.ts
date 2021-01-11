@@ -52,9 +52,9 @@ export class ScheduleJobService {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
         return this.http.get(`${this.url}/check-status/all`, { headers });
     }
-    getUser(): any {
+    getUsers(): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`${this.url}/user/all`, { headers });
+        return this.http.get(`http://localhost:3000/user/all`, { headers });
     }
 
 }

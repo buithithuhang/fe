@@ -70,7 +70,12 @@
                 <mat-icon color="warn">account_circle</mat-icon>
               </button>
               <mat-menu #menuRoomStatus="matMenu">
-                <button mat-menu-item>
+                <div *ngIf="roomStatuses">
+                  <button mat-menu-item *ngFor="let status of roomStatuses">
+                    <mat-icon color="warn">account_circle</mat-icon> {{status.name}}
+                  </button>
+                </div>
+                <!-- <button mat-menu-item>
                   <mat-icon color="warn">account_circle</mat-icon>Phòng trống
                 </button>
                 <button mat-menu-item>
@@ -78,21 +83,18 @@
                 </button>
                 <button mat-menu-item>
                   <mat-icon style="color:green;">account_circle</mat-icon>Khách ra ngoài
-                </button>
+                </button> -->
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCustomer">
-                {{room.bookeds && room.bookeds[0].customer?.name}} 
+                {{room.bookeds && room.bookeds[0]?.customer?.name }}
+                <mat-icon *ngIf="!room.bookeds || !room.bookeds[0]?.customer?.name">person_search</mat-icon>
               </button>
               <mat-menu #menuCustomer="matMenu">
-                <button mat-menu-item>
-                  Bùi Huyền
-                </button>
-                <button mat-menu-item>
-                  Bùi A Thoàng
-                </button>
-                <button mat-menu-item>
-                  Bùi A
-                </button>
+                <div *ngIf="customers">
+                  <button mat-menu-item *ngFor="let customer of customers" (click)="changeCustomer(room, customer)">
+                    {{customer.name}}
+                  </button>
+                </div>
               </mat-menu>
             </div>
           </mat-list-item>
@@ -103,7 +105,12 @@
                 <mat-icon color="primary">cleaning_services</mat-icon>
               </button>
               <mat-menu #menuCleanStatus="matMenu">
-                <button mat-menu-item>
+                <div *ngIf="cleanStatuses">
+                  <button mat-menu-item *ngFor="let status of cleanStatuses">
+                    <mat-icon color="warn">cleaning_services</mat-icon> {{status.name}}
+                  </button>
+                </div>
+                <!-- <button mat-menu-item>
                   <mat-icon color="warn">cleaning_services</mat-icon> Chưa dọn dẹp
                 </button>
                 <button mat-menu-item>
@@ -111,18 +118,17 @@
                 </button>
                 <button mat-menu-item>
                   <mat-icon style="color:green;">cleaning_services</mat-icon>Đã dọn dẹp
-                </button>
+                </button> -->
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCleaner">
-                {{room.assignments && room.assignments[0].employee?.name}} 
+                {{room.assignments && room.assignments[0]?.employee?.name}}
+                <mat-icon *ngIf="!room.assignments || !room.assignments[0]?.employee?.name">person_search</mat-icon>
               </button>
               <mat-menu #menuCleaner="matMenu">
-                <button mat-menu-item>
-                  Bùi Huyền
-                </button>
-                <button mat-menu-item>
-                  Bùi A Thoàng
-                </button>
+                <div *ngIf="users">
+                <button mat-menu-item *ngFor="let user of users" (click)="changeEmployee(room, user)">
+                  {{user.name}}
+                </button></div>
                 <button mat-menu-item>
                   Bùi A
                 </button>
@@ -137,7 +143,12 @@
                 <mat-icon color="primary">done_all</mat-icon>
               </button>
               <mat-menu #menuCheckStatus="matMenu">
-                <button mat-menu-item>
+                <div *ngIf="checkStatuses">
+                  <button mat-menu-item *ngFor="let status of checkStatuses">
+                    <mat-icon color="warn">done_all</mat-icon>{{status.name}}
+                  </button>
+                </div>
+                <!-- <button mat-menu-item>
                   <mat-icon color="warn">done_all</mat-icon>Chưa kiểm tra
                 </button>
                 <button mat-menu-item>
@@ -145,18 +156,17 @@
                 </button>
                 <button mat-menu-item>
                   <mat-icon style="color:green;">done_all</mat-icon>Đã kiểm tra
-                </button>
+                </button> -->
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuChecker">
-                {{room.assignments && room.assignments[0].suppervisor?.name}} 
+                {{room.assignments && room.assignments[0]?.suppervisor?.name}}
+                <mat-icon *ngIf="!room.assignments || !room.assignments[0]?.suppervisor?.name">person_search</mat-icon>
               </button>
               <mat-menu #menuChecker="matMenu">
-                <button mat-menu-item>
-                  Bùi Huyền
-                </button>
-                <button mat-menu-item>
-                  Bùi A Thoàng
-                </button>
+                <div *ngIf="users">
+                  <button mat-menu-item *ngFor="let user of users" (click)="changeSuppervisor(room, user)">
+                    {{user.name}}
+                  </button></div>
                 <button mat-menu-item>
                   Bùi A
                 </button>

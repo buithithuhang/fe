@@ -24,6 +24,7 @@
         </div>
         <div *ngIf="column === 'action'">
           <button mat-stroked-button [routerLink]="['/admin/room',id, element.id]"> Phòng </button>
+          <button mat-stroked-button [routerLink]="['/admin/public-area',id, element.id]"> Khu vực công cộng </button>
           <button mat-stroked-button (click)="openDialog(element)" color="">Sửa</button>
           <button mat-stroked-button (click)="confirmDialog(element)" color="warn">Xóa</button>
         </div>

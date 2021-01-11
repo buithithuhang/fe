@@ -37,7 +37,8 @@ export class ScheduleJobComponent implements OnInit {
     { id: 'Tầng 3-2', name: 'Tầng 3' }
   ];
   rooms: any;
-
+  customers: any;
+  users: any;
   ngOnInit(): void {
 
     // get hotel
@@ -70,6 +71,31 @@ export class ScheduleJobComponent implements OnInit {
       this.rooms = res.data;
       console.log(this.rooms)
     })
+    // get  Customer
+    this.scheduleJobService.getCustomer().subscribe((res: any) => {
+      this.customers = res.data;
+      console.log('customers' + this.customers)
+    })
+    // get users
+    this.scheduleJobService.getUsers().subscribe((res: any) => {
+      this.users = res.data;
+      console.log('customers' + this.customers)
+    })
   }
 
+  changeCustomer(room: any, customer: any) {
+    // TODO:: update customer booked
+    room.bookeds = [{}];
+    room.bookeds[0].customer = customer;
+  }
+
+  changeEmployee(room: any, employee: any){
+    room.assignments = [{}];
+    room.assignments[0].employee = employee;
+  }
+
+  changeSuppervisor(room: any, suppervisor: any){
+    room.assignments = [{}];
+    room.assignments[0].suppervisor = suppervisor;
+  }
 }
