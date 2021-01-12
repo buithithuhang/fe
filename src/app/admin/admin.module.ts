@@ -38,9 +38,6 @@ import { DeleteHotelComponent } from './hotel/delete/delete.component';
 import { CreateHotelComponent } from './hotel/create/create.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { HotelService } from './hotel/hotel.service';
-import { PublicAreaComponent } from './public-area/public-area.component';
-import { CreatePublicAreaComponent } from './public-area/create/create.component';
-import { DeletePublicAreaComponent } from './public-area/delete/delete.component';
 import { CleanComponent } from './clean/clean.component';
 import { CreateCleanComponent } from './clean/create/create.component';
 import { DeleteCleanComponent } from './clean/delete/delete.component';
@@ -49,11 +46,14 @@ import { CustomerService } from './customer/customer.service';
 import { DeleteCustomerComponent } from './customer/delete/delete.component';
 import { CreateCustomerComponent } from './customer/create/create.component';
 import { CustomerComponent } from './customer/customer.component';
-import { PublicAreaService } from './public-area/public-area.service';
 import { UserComponent } from './user/user.component';
 import { CreateUserComponent } from './user/create/create.component';
 import { DeleteUserComponent } from './user/delete/delete.component';
 import { UserService } from './user/user.service';
+import { PublicAreaComponent } from './public-area/public-area.component';
+import { CreatePublicAreaComponent } from './public-area/create/create.component';
+import { DeletePublicAreaComponent } from './public-area/delete/delete.component';
+import { PublicAreaService } from './public-area/public-area.service';
 
 @NgModule({
   declarations: [

@@ -89,13 +89,18 @@ export class ScheduleJobComponent implements OnInit {
     room.bookeds[0].customer = customer;
   }
 
-  changeEmployee(room: any, employee: any){
-    room.assignments = [{}];
+  changeEmployee(room: any, employee: any) {
+    if (!room.assignments || room.assignments.length === 0) {
+      room.assignments = [{}];
+    }
+
     room.assignments[0].employee = employee;
   }
 
-  changeSuppervisor(room: any, suppervisor: any){
-    room.assignments = [{}];
+  changeSuppervisor(room: any, suppervisor: any) {
+    if (!room.assignments || room.assignments.length === 0) {
+      room.assignments = [{}];
+    }
     room.assignments[0].suppervisor = suppervisor;
   }
 }

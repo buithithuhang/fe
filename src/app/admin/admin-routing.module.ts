@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'room/:hid/:fid', component: RoomComponent, },     
       { path: 'floors/:id', component: FloorsComponent, },     
       { path: 'hotel', component: HotelComponent, },     
-      { path: 'public-area', component: PublicAreaComponent, },     
+      { path: 'public-area/:hid/:fid', component: PublicAreaComponent, },     
       { path: 'clean', component: CleanComponent, },     
       { path: 'customer', component: CustomerComponent, },     
       { path: 'user', component: UserComponent, }

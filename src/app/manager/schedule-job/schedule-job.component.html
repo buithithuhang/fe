@@ -126,9 +126,10 @@
               </button>
               <mat-menu #menuCleaner="matMenu">
                 <div *ngIf="users">
-                <button mat-menu-item *ngFor="let user of users" (click)="changeEmployee(room, user)">
-                  {{user.name}}
-                </button></div>
+                  <button mat-menu-item *ngFor="let user of users" (click)="changeEmployee(room, user)">
+                    {{user.name}}
+                  </button>
+                </div>
                 <button mat-menu-item>
                   Bùi A
                 </button>
@@ -166,10 +167,8 @@
                 <div *ngIf="users">
                   <button mat-menu-item *ngFor="let user of users" (click)="changeSuppervisor(room, user)">
                     {{user.name}}
-                  </button></div>
-                <button mat-menu-item>
-                  Bùi A
-                </button>
+                  </button>
+                </div>
               </mat-menu>
             </div>
           </mat-list-item>

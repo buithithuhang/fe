@@ -1,11 +1,5 @@
 <div> create work!</div>
-<div *ngIf="!dataSource.id">
-<mat-form-field>
-  <mat-label> Email</mat-label>
-  <input matInput [(ngModel)]="email">
-</mat-form-field>
-</div>
-<div *ngIf="dataSource.id">
+<div>
   <div *ngFor="let column of columns">
     <div *ngIf="column !== 'id'">
       <div *ngIf="properties[column].relationship">
@@ -21,10 +15,20 @@
         </div>
       </div>
       <div *ngIf="!properties[column].relationship">
-        <mat-form-field>
-          <mat-label> {{properties[column].alias}}</mat-label>
-          <input matInput [(ngModel)]="dataSource[column]">
-        </mat-form-field>
+        <div *ngIf="properties[column].type=='date'">
+          <mat-form-field appearance="fill">
+            <mat-label> {{properties[column].alias}}</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="dataSource[column]">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div *ngIf="properties[column].type!='date'">
+          <mat-form-field>
+            <mat-label> {{properties[column].alias}}</mat-label>
+            <input matInput [(ngModel)]="dataSource[column]">
+          </mat-form-field>
+        </div>
       </div>
     </div>
   </div>

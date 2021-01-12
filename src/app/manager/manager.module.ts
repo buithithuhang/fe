@@ -12,10 +12,23 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { AssignmentService } from './assignment/assignment.service';
 import { PublicJobComponent } from './public-job/public-job.component';
 import { PublicJobService } from './public-job/public-job.service';
+import { CreateBookComponent } from './booked/create/create.component';
+import { BookedComponent } from './booked/booked.component';
+import { BookedService } from './booked/booked.service';
+import { DeleteBookComponent } from './booked/delete/delete.component';
 
 
 @NgModule({
-  declarations: [ManagerComponent, ScheduleJobComponent, PublicJobComponent,AssignmentComponent],
+  declarations: [ManagerComponent, ScheduleJobComponent, 
+    PublicJobComponent,
+    
+    AssignmentComponent, 
+    CreateBookComponent,
+
+    CreateBookComponent,
+    DeleteBookComponent,
+    BookedComponent
+  ],
   imports: [
     CommonModule,
     ManagerRoutingModule,
@@ -27,7 +40,8 @@ import { PublicJobService } from './public-job/public-job.service';
   providers: [
     ScheduleJobService,
     PublicJobService,
-    AssignmentService
+    AssignmentService,
+    BookedService
   ]
 })
 export class ManagerModule { }

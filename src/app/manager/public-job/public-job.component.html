@@ -45,10 +45,10 @@
 
   </div>
   <div class="list-clean">
-    <mat-card class="example-card" *ngFor="let room of publicAreas">
+    <mat-card class="example-card" *ngFor="let public of publicAreas">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{room.name}} - <small>{{room.floors?.name}}</small> </mat-card-title>
+        <mat-card-title>{{public.name}} - <small>{{public.floors?.name}}</small> </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
@@ -69,7 +69,7 @@
                 </button>
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCleaner">
-                {{room.assignments && room.assignments[0]?.employee?.name}}
+                {{public.assignments && public.assignments[0]?.employee?.name}}
               </button>
               <mat-menu #menuCleaner="matMenu">
                 <button mat-menu-item>
@@ -103,7 +103,7 @@
                 </button>
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuChecker">
-                {{room.assignments && room.assignments[0]?.suppervisor?.name}}
+                {{public.assignments && public.assignments[0]?.suppervisor?.name}}
               </button>
               <mat-menu #menuChecker="matMenu">
                 <button mat-menu-item>

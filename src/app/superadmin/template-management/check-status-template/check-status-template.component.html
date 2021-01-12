@@ -1,4 +1,4 @@
-<p>clean-status-template works!</p>
+<p>Mẫu trạng thái kiểm tra</p>
 <div>
   <button mat-button (click)="openDialog()" color="primary">Thêm</button>
 </div>
@@ -14,7 +14,12 @@
           <span *ngIf="column !== 'id'">
            
             <div *ngIf="!properties[column]?.relationship">
+              <div *ngIf="properties[column]?.type == 'color'">
+                <mat-icon [style.color]="element[column]">done_all</mat-icon>
+              </div>
+              <div *ngIf="properties[column]?.type != 'color'">
                 {{  element[column]}}
+              </div>
             </div>
              <div *ngIf="properties[column]?.relationship">
                 {{  element[properties[column]?.relationship.replace('-', '_')]?.name}}

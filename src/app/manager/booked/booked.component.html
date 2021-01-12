@@ -1,4 +1,4 @@
-<p>Khu vực công cộng</p>
+<p>clean works!</p>
 <div>
   <button mat-button (click)="openDialog()" color="primary">Thêm</button>
 </div>
@@ -23,7 +23,6 @@
 
         </div>
         <div *ngIf="column === 'action'">
-          <!-- <button mat-stroked-button [routerLink]="['/admin/floors', element.id]"> Tầng </button>  -->
           <button mat-stroked-button (click)="openDialog(element)" color="">Sửa</button>
           <button mat-stroked-button (click)="confirmDialog(element)" color="warn">Xóa</button>
         </div>
