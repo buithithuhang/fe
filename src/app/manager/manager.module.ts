@@ -16,6 +16,8 @@ import { CreateBookComponent } from './booked/create/create.component';
 import { BookedComponent } from './booked/booked.component';
 import { BookedService } from './booked/booked.service';
 import { DeleteBookComponent } from './booked/delete/delete.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeService } from './employee/employee.service';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { DeleteBookComponent } from './booked/delete/delete.component';
     
     AssignmentComponent, 
     CreateBookComponent,
+
+    EmployeeComponent,
 
     CreateBookComponent,
     DeleteBookComponent,
@@ -41,6 +45,7 @@ import { DeleteBookComponent } from './booked/delete/delete.component';
     ScheduleJobService,
     PublicJobService,
     AssignmentService,
+    EmployeeService,
     BookedService
   ]
 })

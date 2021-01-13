@@ -16,94 +16,121 @@
       <input matInput value="">
     </mat-form-field>
   </div>
-  <div class="list-room">
-    <mat-card class="example-card" *ngFor="let public of publicAreas">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{public.name}} - <small>{{public.floors?.name}}</small> </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item>
-            <div>
-              <label>
-                <mat-icon color="grey">account_circle</mat-icon>
-              </label>
-              <mat-form-field appearance="fill">
-                <mat-label></mat-label>
-                <select matNativeControl required>
-                  <option value="volvo">Người kiểm tra</option>
-                  <option value="saab">Người dọn dẹp</option>
-                </select>
-              </mat-form-field>
-            </div>
-          </mat-list-item>
 
-          <mat-list-item>
-            <div>
-              <button mat-button [matMenuTriggerFor]="menuChecker">
-                <mat-icon color="warn">done_outline</mat-icon>
-              </button>
-              <mat-menu #menuChecker="matMenu">
-                <button mat-menu-item>
-                  <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
-                </button>
-                <button mat-menu-item>
-                  <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
-                </button>
-              </mat-menu>
+  <div class="inline">
+    <div class="employee">
+      <app-manager-employee></app-manager-employee>
+    </div>
+    <div class="asssign">
+
+      <mat-tab-group dynamicHeight>
+        <mat-tab label="Short tab">
+          <div class="example-small-box mat-elevation-z4">
+
+            <div class="room">
+
+              <div class="list-room">
+                <mat-card class="example-card" *ngFor="let public of publicAreas">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{public.name}} - <small>{{public.floors?.name}}</small> </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-list>
+                      <mat-list-item>
+                        <div>
+                          <label>
+                            <mat-icon color="grey">account_circle</mat-icon>
+                          </label>
+                          <mat-form-field appearance="fill">
+                            <mat-label></mat-label>
+                            <select matNativeControl required>
+                              <option value="volvo">Người kiểm tra</option>
+                              <option value="saab">Người dọn dẹp</option>
+                            </select>
+                          </mat-form-field>
+                        </div>
+                      </mat-list-item>
+
+                      <mat-list-item>
+                        <div>
+                          <button mat-button [matMenuTriggerFor]="menuChecker">
+                            <mat-icon color="warn">done_outline</mat-icon>
+                          </button>
+                          <mat-menu #menuChecker="matMenu">
+                            <button mat-menu-item>
+                              <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
+                            </button>
+                          </mat-menu>
+                        </div>
+                      </mat-list-item>
+                    </mat-list>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+
             </div>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
+
+          </div>
+        </mat-tab>
+        <mat-tab label="Long tab">
+          <div class="example-large-box mat-elevation-z4">
+
+            <div class="public-area">
+              <mat-card class="example-card" *ngFor="let room of rooms">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{room.name}} - <small>{{room.room_type?.name}}</small> </mat-card-title>
+                  <mat-card-subtitle>{{room.floors?.name}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <mat-list>
+                    <mat-list-item>
+                      <div>
+                        <label>
+                          <mat-icon color="grey">account_circle</mat-icon>
+                        </label>
+                        <mat-form-field appearance="fill">
+                          <mat-label></mat-label>
+                          <select matNativeControl required>
+                            <option value="volvo">Người kiểm tra</option>
+                            <option value="saab">Người dọn dẹp</option>
+                          </select>
+                        </mat-form-field>
+                      </div>
+                    </mat-list-item>
+
+                    <mat-list-item>
+                      <div>
+                        <button mat-button [matMenuTriggerFor]="menuChecker">
+                          <mat-icon color="warn">done_outline</mat-icon>
+                        </button>
+                        <mat-menu #menuChecker="matMenu">
+                          <button mat-menu-item>
+                            <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
+                          </button>
+                          <button mat-menu-item>
+                            <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
+                          </button>
+                        </mat-menu>
+                      </div>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+
+    </div>
   </div>
+  <br>
 
- <br>
 
- <div class="public-area">
-  <mat-card class="example-card" *ngFor="let room of rooms">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{room.name}} - <small>{{room.room_type?.name}}</small> </mat-card-title>
-      <mat-card-subtitle>{{room.floors?.name}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item>
-          <div>
-            <label>
-              <mat-icon color="grey">account_circle</mat-icon>
-            </label>
-            <mat-form-field appearance="fill">
-              <mat-label></mat-label>
-              <select matNativeControl required>
-                <option value="volvo">Người kiểm tra</option>
-                <option value="saab">Người dọn dẹp</option>
-              </select>
-            </mat-form-field>
-          </div>
-        </mat-list-item>
 
-        <mat-list-item>
-          <div>
-            <button mat-button [matMenuTriggerFor]="menuChecker">
-              <mat-icon color="warn">done_outline</mat-icon>
-            </button>
-            <mat-menu #menuChecker="matMenu">
-              <button mat-menu-item>
-                <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
-              </button>
-              <button mat-menu-item>
-                <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
-              </button>
-            </mat-menu>
-          </div>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-  
 </div>
