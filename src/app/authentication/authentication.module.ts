@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material-module';
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterService } from './register/register.service';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [LoginService]
+  providers: [LoginService, RegisterService]
 })
 export class AuthenticationModule { }

@@ -15,16 +15,24 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  message: any;
   login(): void {
+    console.log("login")
     const user = {username: this.username, password: this.password} ;
      this.authService.login(user).subscribe((res: any) => {
       if (res.access_token) {
         console.log(res);
         localStorage.setItem('authorization', res.access_token);
         localStorage.setItem('site_id', res.site_id);
+
+        if(res.position === 'admin') {
+          this.router.navigate(['./admin']);
+        }if(res.position === 'manager') {
+          this.router.navigate(['./manager']);
+        }
       }
-      this.router.navigate(['./landing']);
+      this.message = res.message
+      // this.router.navigate(['./landing']);
     });
 
   }
