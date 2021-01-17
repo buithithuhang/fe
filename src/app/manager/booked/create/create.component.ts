@@ -24,7 +24,17 @@ export class CreateBookComponent implements OnInit {
         console.log(this.data);
         // get properites
         this.properties = this.data.properties;
-        this.columns = Object.keys(this.data.properties);
+        this.columns = Object.keys(this.properties)
+        .map(k => { return { key: k, index: this.properties[k].index } as { key: string, index: number } })
+        .sort((a: any, b: any): any => {
+        if (a.index < b.index) {
+          return -1;
+        }
+        if (a.index > b.index) {
+          return 1;
+        }
+        return 0;
+      }).map((k: any) => k.key);
         this.dataSource = this.data.dataSource || {};
         console.log(this.dataSource)
         // set to form control

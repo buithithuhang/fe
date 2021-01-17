@@ -1,85 +1,43 @@
-<p>Phân công dọn dẹp cho nhân viên</p>
+<h1>Phân công dọn dẹp cho nhân viên</h1>
 <div>
-  <div class="filter-bar inline">
-    <mat-form-field appearance="fill">
-      <mat-label>Nhập phạm vi ngày</mat-label>
-      <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate placeholder="Ngày bắt đầu">
-        <input matEndDate placeholder="Ngày kết thúc">
-      </mat-date-range-input>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="example-full-width">
-      <mat-label>Tìm kiếm</mat-label>
-      <input matInput value="">
-    </mat-form-field>
-  </div>
 
   <div class="inline">
     <div class="employee">
       <app-manager-employee></app-manager-employee>
     </div>
     <div class="asssign">
+      <div class="filter-bar inline">
+        <button mat-raised-button>
+          Hôm nay
+        </button>
+
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        <h2> tháng 1, 16, 2021</h2>
+
+        <mat-form-field class="ml-2 choose" appearance="fill">
+          <mat-select value="Ngày" >
+            <mat-option *ngFor="let choose of chooses" [value]="choose.value">
+              {{choose.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class=" ml-2 example-full-width">
+          <mat-label>Tìm kiếm</mat-label>
+          <input matInput value="">
+        </mat-form-field>
+      </div>
 
       <mat-tab-group dynamicHeight>
-        <mat-tab label="Short tab">
-          <div class="example-small-box mat-elevation-z4">
-
-            <div class="room">
-
-              <div class="list-room">
-                <mat-card class="example-card" *ngFor="let public of publicAreas">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{public.name}} - <small>{{public.floors?.name}}</small> </mat-card-title>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <mat-list>
-                      <mat-list-item>
-                        <div>
-                          <label>
-                            <mat-icon color="grey">account_circle</mat-icon>
-                          </label>
-                          <mat-form-field appearance="fill">
-                            <mat-label></mat-label>
-                            <select matNativeControl required>
-                              <option value="volvo">Người kiểm tra</option>
-                              <option value="saab">Người dọn dẹp</option>
-                            </select>
-                          </mat-form-field>
-                        </div>
-                      </mat-list-item>
-
-                      <mat-list-item>
-                        <div>
-                          <button mat-button [matMenuTriggerFor]="menuChecker">
-                            <mat-icon color="warn">done_outline</mat-icon>
-                          </button>
-                          <mat-menu #menuChecker="matMenu">
-                            <button mat-menu-item>
-                              <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
-                            </button>
-                            <button mat-menu-item>
-                              <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
-                            </button>
-                          </mat-menu>
-                        </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-
-            </div>
-
-          </div>
-        </mat-tab>
-        <mat-tab label="Long tab">
+        <mat-tab label="Phòng">
           <div class="example-large-box mat-elevation-z4">
-
-            <div class="public-area">
+            <div class="room">
               <mat-card class="example-card" *ngFor="let room of rooms">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
@@ -89,48 +47,102 @@
                 <mat-card-content>
                   <mat-list>
                     <mat-list-item>
-                      <div>
+                      <div class="mat-line">
                         <label>
                           <mat-icon color="grey">account_circle</mat-icon>
                         </label>
-                        <mat-form-field appearance="fill">
-                          <mat-label></mat-label>
-                          <select matNativeControl required>
-                            <option value="volvo">Người kiểm tra</option>
-                            <option value="saab">Người dọn dẹp</option>
-                          </select>
-                        </mat-form-field>
+                        <button mat-button [matMenuTriggerFor]="menuCleaner">
+                          {{room.assignments && room.assignments[0]?.employee?.name}}
+                          <mat-icon *ngIf="!room.assignments || !room.assignments[0]?.employee?.name">person_search
+                          </mat-icon>
+                        </button>
+                        <mat-menu #menuCleaner="matMenu">
+                          <div *ngIf="users">
+                            <button mat-menu-item *ngFor="let user of users" (click)="changeEmployee(room, user)">
+                              {{user.name}}
+                            </button>
+                          </div>
+                        </mat-menu>
                       </div>
                     </mat-list-item>
 
                     <mat-list-item>
-                      <div>
-                        <button mat-button [matMenuTriggerFor]="menuChecker">
-                          <mat-icon color="warn">done_outline</mat-icon>
+                      <div class="mat-line">
+                        <mat-form-field class="hour" appearance="fill">
+                          <mat-label>Giờ</mat-label>
+                          <mat-select>
+                            <mat-option *ngFor="let food of hours" [value]="food.value">
+                              {{food.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <button class="done" mat-button>
+                          <mat-icon color="warn">done</mat-icon>
                         </button>
-                        <mat-menu #menuChecker="matMenu">
-                          <button mat-menu-item>
-                            <mat-icon color="warn">done_outline</mat-icon>Phòng chưa được phân công
-                          </button>
-                          <button mat-menu-item>
-                            <mat-icon style="color:green;">done_outline</mat-icon>Phòng đã được phân công
-                          </button>
-                        </mat-menu>
                       </div>
                     </mat-list-item>
                   </mat-list>
                 </mat-card-content>
               </mat-card>
             </div>
-
           </div>
         </mat-tab>
-      </mat-tab-group>
 
+        <mat-tab label="Khu vực công cộng">
+          <div class="example-small-box mat-elevation-z4">
+            <div class="public-area">
+              <div class="list-room">
+                <mat-card class="example-card" *ngFor="let room of publicAreas">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{room.name}} - <small>{{room.floors?.name}}</small> </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-list>
+                      <mat-list-item>
+                        <div class="mat-line">
+                          <label>
+                            <mat-icon color="grey">account_circle</mat-icon>
+                          </label>
+                          <button mat-button [matMenuTriggerFor]="menuCleaner">
+                            {{room.assignments && room.assignments[0]?.employee?.name}}
+                            <mat-icon *ngIf="!room.assignments || !room.assignments[0]?.employee?.name">person_search
+                            </mat-icon>
+                          </button>
+                          <mat-menu #menuCleaner="matMenu">
+                            <div *ngIf="users">
+                              <button mat-menu-item *ngFor="let user of users" (click)="changeEmployee(room, user)">
+                                {{user.name}}
+                              </button>
+                            </div>
+                          </mat-menu>
+                        </div>
+                      </mat-list-item>
+
+                      <mat-list-item>
+                        <div>
+                          <mat-form-field class="hours" appearance="fill">
+                            <mat-label>Giờ</mat-label>
+                            <mat-select>
+                              <mat-option *ngFor="let food of hours" [value]="food.value">
+                                {{food.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <button class="done" mat-button>
+                            <mat-icon color="blue">done</mat-icon>
+                          </button>
+                        </div>
+                      </mat-list-item>
+                    </mat-list>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </mat-tab>       
+      </mat-tab-group>
     </div>
   </div>
   <br>
-
-
-
 </div>

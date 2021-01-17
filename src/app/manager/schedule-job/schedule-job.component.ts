@@ -76,10 +76,10 @@ export class ScheduleJobComponent implements OnInit {
       this.customers = res.data;
       console.log('customers' + this.customers)
     })
+
     // get users
     this.scheduleJobService.getUsers().subscribe((res: any) => {
       this.users = res.data;
-      console.log('customers' + this.customers)
     })
   }
 

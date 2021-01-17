@@ -31,5 +31,9 @@ export class AssignmentService {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
         return this.http.get(`${this.url}/public-area/all`, { headers });
     }
+    getUsers(): any {
+        let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
+        return this.http.get(`http://localhost:3000/user/all`, { headers });
+    }
     
 }

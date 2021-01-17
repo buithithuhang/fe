@@ -1,5 +1,18 @@
-<p>schedule-job works!</p>
+<p></p>
 <div>
+  <div style="display: flex;">
+    <button mat-raised-button>
+      Hôm nay
+    </button>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <h3> tháng 1, 16, 2021</h3>
+  </div>  
+  
   <div class="filter-bar inline">
     <mat-form-field appearance="fill">
       <mat-label>Khách sạn</mat-label>
@@ -10,7 +23,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field class="choose" appearance="fill">
       <mat-label>Tầng</mat-label>
       <mat-select>
         <mat-option *ngFor="let food of floors" [value]="food.id">
@@ -58,14 +71,14 @@
     <mat-card class="example-card" *ngFor="let room of rooms">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{room.name}} - <small>{{room.room_type?.name}}</small> </mat-card-title>
+        <mat-card-title class="text">{{room.name}} - <small>{{room.room_type?.name}}</small> </mat-card-title>
         <mat-card-subtitle>{{room.floors?.name}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
           <!-- // room status -->
           <mat-list-item>
-            <div>
+            <div class="mat-line">
               <button mat-button [matMenuTriggerFor]="menuRoomStatus">
                 <mat-icon color="warn">account_circle</mat-icon>
               </button>
@@ -75,15 +88,6 @@
                     <mat-icon color="warn">account_circle</mat-icon> {{status.name}}
                   </button>
                 </div>
-                <!-- <button mat-menu-item>
-                  <mat-icon color="warn">account_circle</mat-icon>Phòng trống
-                </button>
-                <button mat-menu-item>
-                  <mat-icon color="primary">account_circle</mat-icon>Khách trong phòng
-                </button>
-                <button mat-menu-item>
-                  <mat-icon style="color:green;">account_circle</mat-icon>Khách ra ngoài
-                </button> -->
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCustomer">
                 {{room.bookeds && room.bookeds[0]?.customer?.name }}
@@ -100,7 +104,7 @@
           </mat-list-item>
 
           <mat-list-item>
-            <div>
+            <div class="mat-line">
               <button mat-button [matMenuTriggerFor]="menuCleanStatus">
                 <mat-icon color="primary">cleaning_services</mat-icon>
               </button>
@@ -110,15 +114,6 @@
                     <mat-icon color="warn">cleaning_services</mat-icon> {{status.name}}
                   </button>
                 </div>
-                <!-- <button mat-menu-item>
-                  <mat-icon color="warn">cleaning_services</mat-icon> Chưa dọn dẹp
-                </button>
-                <button mat-menu-item>
-                  <mat-icon color="primary">cleaning_services</mat-icon>Đang dọn dẹp
-                </button>
-                <button mat-menu-item>
-                  <mat-icon style="color:green;">cleaning_services</mat-icon>Đã dọn dẹp
-                </button> -->
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCleaner">
                 {{room.assignments && room.assignments[0]?.employee?.name}}
@@ -130,16 +125,12 @@
                     {{user.name}}
                   </button>
                 </div>
-                <button mat-menu-item>
-                  Bùi A
-                </button>
               </mat-menu>
             </div>
-
           </mat-list-item>
 
           <mat-list-item>
-            <div>
+            <div class="mat-line">
               <button mat-button [matMenuTriggerFor]="menuCheckStatus">
                 <mat-icon color="primary">done_all</mat-icon>
               </button>

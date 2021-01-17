@@ -11,7 +11,7 @@ import { BookedService } from './booked.service';
 })
 export class BookedComponent implements OnInit {
 
-  
+
   constructor(private service: BookedService, public dialog: MatDialog) {
 
   }
@@ -21,18 +21,36 @@ export class BookedComponent implements OnInit {
     this.service.getProperties().subscribe((res: any) => {
       // change column display
       this.properties = res.data.properties;
-      this.columnsToDisplay = Object.keys(res.data.properties);
+      this.columnsToDisplay = Object.keys(res.data.properties)
+        .filter((column: any) => !this.properties[column]?.expandable);
+      this.columnsToDisplay.push('action');
+      // this.columnsToDisplay = []; 
+      let keys = Object.keys(res.data.properties);
+      this.columnsToDisplay = keys
+        .map(k => { return { key: k, index: this.properties[k].index } as { key: string, index: number } })
+        .sort((a: any, b: any): any => {
+          if (a.index < b.index) {
+            return -1;
+          }
+          if (a.index > b.index) {
+            return 1;
+          }
+          return 0;
+        }).map((k: any) => k.key);
+
+      console.log(this.columnsToDisplay)
+      // .sort((a: any, b: any) => this.properties[a].index > this.properties[b].index);
       this.columnsToDisplay.push('action');
     })
-   
+
     this.getDatasource();
   }
 
   getDatasource() {
- // set datasource
- this.service.all().subscribe((res: any) => {
-  this.dataSource = res.data;
-})
+    // set datasource
+    this.service.all().subscribe((res: any) => {
+      this.dataSource = res.data;
+    })
   }
 
   dataSource: any;
@@ -42,7 +60,7 @@ export class BookedComponent implements OnInit {
   openDialog(dataSource?: any): void {
     const dialogRef = this.dialog.open(CreateBookComponent, {
       width: '550px',
-      data: {properties: this.properties, dataSource}
+      data: { properties: this.properties, dataSource }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -54,7 +72,7 @@ export class BookedComponent implements OnInit {
   confirmDialog(dataSource?: any): void {
     const dialogRef = this.dialog.open(DeleteBookComponent, {
       width: '550px',
-      data: {properties: this.properties, dataSource}
+      data: { properties: this.properties, dataSource }
     });
 
     dialogRef.afterClosed().subscribe(result => {

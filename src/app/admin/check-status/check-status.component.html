@@ -1,6 +1,8 @@
-<p>check-check-status works!</p>
+<p></p>
 <div>
-  <button mat-button (click)="openDialog()" color="primary">Thêm</button>
+  <button mat-button (click)="openDialog()" color="primary">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">add_circle_outline</mat-icon>
+  </button>
 </div>
 <div *ngIf="columnsToDisplay">
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
@@ -29,8 +31,12 @@
 
         </div>
         <div *ngIf="column === 'action'">
-          <button mat-stroked-button (click)="openDialog(element)" color="">Sửa</button>
-          <button mat-stroked-button (click)="confirmDialog(element)" color="warn">Xóa</button>
+          <button mat-stroked-button (click)="openDialog(element)" color="">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">construction</mat-icon>
+          </button>
+          <button mat-stroked-button (click)="confirmDialog(element)" color="warn">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">delete_forever</mat-icon>
+          </button>
         </div>
       </td>
     </ng-container>

@@ -12,9 +12,9 @@ import { CustomerService } from './customer.service';
 })
 export class CustomerComponent implements OnInit {
 
-  
+
   constructor(
-    public route: ActivatedRoute,private service: CustomerService, public dialog: MatDialog) {
+    public route: ActivatedRoute, private service: CustomerService, public dialog: MatDialog) {
 
   }
   id: any;
@@ -24,46 +24,47 @@ export class CustomerComponent implements OnInit {
     this.service.getProperties().subscribe((res: any) => {
       // change column display
       this.properties = res.data.properties;
-      this.columnsToDisplay = Object.keys(res.data.properties);
-      this.columnsToDisplay.push('action');
-    })
-   
+      this.columnsToDisplay = Object.keys(res.data.properties)
+        .filter((column: any) => !this.properties[column]?.expandable);
+    this.columnsToDisplay.push('action');
+  })
+
     this.getDatasource();
   }
 
-  getDatasource() {
- // set datasource
- this.service.all().subscribe((res: any) => {
-  this.dataSource = res.data;
-})
-  }
+getDatasource() {
+  // set datasource
+  this.service.all().subscribe((res: any) => {
+    this.dataSource = res.data;
+  })
+}
 
-  dataSource: any;
-  columnsToDisplay: any;
-  expandedElement: any | null | undefined;
-  properties: any;
-  openDialog(dataSource?: any): void {
-    const dialogRef = this.dialog.open(CreateCustomerComponent, {
-      width: '550px',
-      data: {properties: this.properties, dataSource, id: this.id}
-    });
+dataSource: any;
+columnsToDisplay: any;
+expandedElement: any | null | undefined;
+properties: any;
+openDialog(dataSource ?: any): void {
+  const dialogRef = this.dialog.open(CreateCustomerComponent, {
+    width: '550px',
+    data: { properties: this.properties, dataSource, id: this.id }
+  });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
 
-      this.getDatasource();
-    });
-  }
-  confirmDialog(dataSource?: any): void {
-    const dialogRef = this.dialog.open(DeleteCustomerComponent, {
-      width: '550px',
-      data: {properties: this.properties, dataSource}
-    });
+    this.getDatasource();
+  });
+}
+confirmDialog(dataSource ?: any): void {
+  const dialogRef = this.dialog.open(DeleteCustomerComponent, {
+    width: '550px',
+    data: { properties: this.properties, dataSource }
+  });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
 
-      this.getDatasource();
-    });
-  }
+    this.getDatasource();
+  });
+}
 }

@@ -31,13 +31,13 @@ export class RoomComponent implements OnInit {
       this.columnsToDisplay = Object.keys(res.data.properties);
       this.columnsToDisplay.push('action');
     })
-
-    this.getDatasource();
+    console.log(this.fid)
+    this.getDatasource(this.fid);
   }
 
-  getDatasource() {
+  getDatasource(fid?: string) {
     // set datasource
-    this.service.all().subscribe((res: any) => {
+    this.service.all(fid).subscribe((res: any) => {
       this.dataSource = res.data;
     })
   }
@@ -55,7 +55,7 @@ export class RoomComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getDatasource();
+      this.getDatasource(this.fid);
     });
   }
   confirmDialog(dataSource?: any): void {
@@ -67,7 +67,7 @@ export class RoomComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getDatasource();
+      this.getDatasource(this.fid);
     });
   }
 }

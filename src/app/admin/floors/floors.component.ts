@@ -28,12 +28,12 @@ export class FloorsComponent implements OnInit {
       this.columnsToDisplay.push('action');
     })
    
-    this.getDatasource();
+    this.getDatasource(this.id);
   }
 
-  getDatasource() {
+  getDatasource(hid?: string) {
  // set datasource
- this.service.all().subscribe((res: any) => {
+ this.service.all(hid).subscribe((res: any) => {
   this.dataSource = res.data;
 })
   }
@@ -51,7 +51,7 @@ export class FloorsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getDatasource();
+      this.getDatasource(this.id);
     });
   }
   confirmDialog(dataSource?: any): void {
@@ -63,7 +63,7 @@ export class FloorsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.getDatasource();
+      this.getDatasource(this.id);
     });
   }
 }

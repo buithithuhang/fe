@@ -12,11 +12,12 @@ import { PublicAreaService } from './public-area.service';
 export class PublicAreaComponent implements OnInit {
 
   
-  constructor(private service: PublicAreaService, public dialog: MatDialog) {
+  constructor(
+    private service: PublicAreaService, public dialog: MatDialog) {
 
   }
-
   ngOnInit(): void {
+    
     //get table properties
     this.service.getProperties().subscribe((res: any) => {
       // change column display

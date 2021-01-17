@@ -37,6 +37,7 @@ export class PublicJobComponent implements OnInit {
     { id: 'Tầng 3-2', name: 'Tầng 3' }
   ];
   publicAreas: any;
+  users: any;
 
   ngOnInit(): void {
 
@@ -70,6 +71,27 @@ export class PublicJobComponent implements OnInit {
       this.checkStatuses = res.data;
     })
 
+
+    
+    // get users
+    this.publicJobService.getUsers().subscribe((res: any) => {
+      this.users = res.data;
+    })
+
+  }
+  changeEmployee(publicArea: any, employee: any) {
+    if (!publicArea.assignments || publicArea.assignments.length === 0) {
+      publicArea.assignments = [{}];
+    }
+
+    publicArea.assignments[0].employee = employee;
+  }
+
+  changeSuppervisor(publicArea: any, suppervisor: any) {
+    if (!publicArea.assignments || publicArea.assignments.length === 0) {
+      publicArea.assignments = [{}];
+    }
+    publicArea.assignments[0].suppervisor = suppervisor;
   }
 
 }

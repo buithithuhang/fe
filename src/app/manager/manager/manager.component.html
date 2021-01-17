@@ -1,15 +1,31 @@
-<p>manager works!</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>HouseKeeping</span>
+    <button mat-button>Manager</button>
+    <span class="example-spacer"></span>
+    <button mat-button>Trần Thị Thu Nhàn</button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar-row>
+<p></p>
+</mat-toolbar>
 <div class="inline">
   <div class="sidebar">
     <div class="mat-list">
-      <div class="mat-list-item"> <a [routerLink]="['/manager/schedule-job']"> Phòng</a> </div>
-      <div class="mat-list-item"> <a [routerLink]="['/manager/public-job']">  Khu vực CC </a> </div>
-      <div class="mat-list-item"> <a [routerLink]="['/manager/assignment']"> Phân công công việc </a> </div>
+      <!-- style="background-color: #3f51b5; -->
+      <div class="mat-list-item" >
+         <a  [routerLink]="['/manager/schedule-job']">
+          Phòng
+        </a> 
+      </div>
+      <div class="mat-list-item" > <a [routerLink]="['/manager/public-job']"> Khu vực công cộng </a></div>
+      <div class="mat-list-item" style="background-color: #3f51b5;"> <a style="color:white;"[routerLink]="['/manager/assignment']"> Phân công công việc
+        </a> </div>
       <div class="mat-list-item"> <a [routerLink]="['/manager/booked']"> Book phòng </a> </div>
-
     </div>
   </div>
-  <div class="container">
+  <div class="w-100">
     <router-outlet></router-outlet>
   </div>
 </div>

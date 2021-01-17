@@ -8,9 +8,9 @@ export class PublicAreaService {
     propertiesUrl = ''
     constructor(private http: HttpClient) { }
 
-    all(): any {
+    all(fid?: string): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`${this.url}/all`, { headers });
+        return this.http.get(`${this.url}/all?floors_id=${fid}`, { headers });
     }
 
     get(id: any): any {

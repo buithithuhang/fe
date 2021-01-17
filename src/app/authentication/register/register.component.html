@@ -53,7 +53,7 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
-           </ul>
+        </ul>
         <span class="nav-item">
           <a class="btn-outline-sm" href="/authentication/login">Đăng nhập</a>
         </span>
@@ -73,26 +73,28 @@
           <div class="form-container">
             <div id="logInForm" data-toggle="validator" data-focus="false" novalidate="true">
               <div class="form-group has-error has-danger">
-                <input type="email" class="form-control-input" [(ngModel)]="username" id="lemail" required="">
+                <input type="text" class="form-control-input" [(ngModel)]="username" id="lusername" required="">
+                <label class="label-control" for="lusername">Tên đăng nhập</label>
+              </div>
+              <div class="form-group has-error has-danger">
+                <input type="email" class="form-control-input" [(ngModel)]="email" id="lemail" required="">
                 <label class="label-control" for="lemail">Email</label>
-                <div class="help-block with-errors">
-                  <ul class="list-unstyled">
-                    <li>Vui lòng điền vào tên đăng nhập.</li>
-                  </ul>
-                </div>
+              </div>
+              <div class="form-group has-error has-danger">
+                <input type="text" class="form-control-input" [(ngModel)]="phone" id="lphone" required="">
+                <label class="label-control" for="lphone">Số điện thoại</label>
+              </div>
+              <div class="form-group has-error has-danger">
+                <input type="text" class="form-control-input" [(ngModel)]="company" id="lcompany" required="">
+                <label class="label-control" for="lcompany">Tên công ty</label>
               </div>
               <div class="form-group has-error has-danger">
                 <input type="text" [(ngModel)]="password" class="form-control-input" id="lpassword" required="">
                 <label class="label-control" for="lpassword">Mật khẩu</label>
-                <div class="help-block with-errors">
-                  <ul class="list-unstyled">
-                    <li>Vui lòng điền vào mật khẩu.</li>
-                  </ul>
-                </div>
               </div>
 
               <div class="form-group">
-                <button  class="form-control-submit-button disabled" (click)="login()">Đăng ký</button>
+                <button class="form-control-submit-button disabled" (click)="login()">Đăng ký</button>
               </div>
               <div class="form-message">
                 <div id="lmsgSubmit" class="h3 text-center hidden"></div>

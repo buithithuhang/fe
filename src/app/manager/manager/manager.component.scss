@@ -17,4 +17,15 @@
       text-decoration: none;
     }
   }
-  
+  .mat-list-item{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    color: blue;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .icons{
+    height: 10%;
+    width: 10%;
+  }

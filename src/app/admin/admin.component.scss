@@ -17,3 +17,11 @@
     text-decoration: none;
   }
 }
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-list-item{
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  color: blue;
+}
