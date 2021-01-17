@@ -44,6 +44,20 @@
     </mat-form-field>
 
   </div>
+
+  <div class="inline ml-4 mb-3">
+    <button mat-raised-button small>
+      Hôm nay
+    </button>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <h3> Tháng 1, 16, 2021</h3>
+  </div>
+
   <div class="list-clean">
     <mat-card class="example-card" *ngFor="let publicArea of publicAreas">
       <mat-card-header>
@@ -55,18 +69,20 @@
           <mat-list-item>
             <div class="mat-line">
               <button mat-button [matMenuTriggerFor]="menuCleanStatus">
-                <mat-icon color="primary">cleaning_services</mat-icon>
+                <mat-icon [style.color]="publicArea.clean_status?.color">cleaning_services</mat-icon>
               </button>
               <mat-menu #menuCleanStatus="matMenu">
                 <div *ngIf="cleanStatuses">
-                  <button mat-menu-item *ngFor="let status of cleanStatuses">
-                    <mat-icon color="warn">cleaning_services</mat-icon> {{status.name}}
+                  <button mat-menu-item *ngFor="let status of cleanStatuses"
+                    (click)="changeCleanStatus(publicArea, status)">
+                    <mat-icon [style.color]="status.color">cleaning_services</mat-icon> {{status.name}}
                   </button>
                 </div>
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuCleaner">
                 {{publicArea.assignments && publicArea.assignments[0]?.employee?.name}}
-                <mat-icon *ngIf="!publicArea.assignments || !publicArea.assignments[0]?.employee?.name">person_search</mat-icon>
+                <mat-icon *ngIf="!publicArea.assignments || !publicArea.assignments[0]?.employee?.name">person_search
+                </mat-icon>
               </button>
               <mat-menu #menuCleaner="matMenu">
                 <div *ngIf="users">
@@ -81,12 +97,13 @@
           <mat-list-item>
             <div class="mat-line">
               <button mat-button [matMenuTriggerFor]="menuCheckStatus">
-                <mat-icon color="primary">done_all</mat-icon>
+                <mat-icon [style.color]="publicArea.check_status?.color">done_all</mat-icon>
               </button>
               <mat-menu #menuCheckStatus="matMenu">
                 <div *ngIf="checkStatuses">
-                  <button mat-menu-item *ngFor="let status of checkStatuses">
-                    <mat-icon color="warn">done_all</mat-icon>{{status.name}}
+                  <button mat-menu-item *ngFor="let status of checkStatuses"
+                    (click)="changeCheckStatus(publicArea, status)">
+                    <mat-icon [style.color]="status.color">done_all</mat-icon>{{status.name}}
                   </button>
                 </div>
               </mat-menu>

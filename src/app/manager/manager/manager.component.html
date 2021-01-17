@@ -8,19 +8,19 @@
       <mat-icon>more_vert</mat-icon>
     </button>
   </mat-toolbar-row>
-<p></p>
+  <p></p>
 </mat-toolbar>
 <div class="inline">
   <div class="sidebar">
     <div class="mat-list">
       <!-- style="background-color: #3f51b5; -->
       <div class="mat-list-item" >
-         <a  [routerLink]="['/manager/schedule-job']">
+        <a [routerLink]="['/manager/schedule-job']">
           Phòng
-        </a> 
+        </a>
       </div>
-      <div class="mat-list-item" > <a [routerLink]="['/manager/public-job']"> Khu vực công cộng </a></div>
-      <div class="mat-list-item" style="background-color: #3f51b5;"> <a style="color:white;"[routerLink]="['/manager/assignment']"> Phân công công việc
+      <div class="mat-list-item" style="background-color: #3f51b5;"> <a style="color:white;" [routerLink]="['/manager/public-job']"> Khu vực công cộng </a></div>
+      <div class="mat-list-item"> <a  [routerLink]="['/manager/assignment']"> Phân công công việc
         </a> </div>
       <div class="mat-list-item"> <a [routerLink]="['/manager/booked']"> Book phòng </a> </div>
     </div>

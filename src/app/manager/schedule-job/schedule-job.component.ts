@@ -9,36 +9,16 @@ import { ScheduleJobService } from './schedule-job.service';
 export class ScheduleJobComponent implements OnInit {
 
   constructor(private scheduleJobService: ScheduleJobService) { }
-  hotels = [
-    { id: 'Chưa dọn dẹp-0', name: 'Chưa dọn dẹp' },
-    { id: 'Đang dọn dẹp-1', name: 'Đang dọn dẹp' },
-    { id: 'Đã dọn dẹp-2', name: 'Đã dọn dẹp' }
-  ];
 
-  checkStatuses = [
-    { id: 'Chưa kiểm tra-0', name: 'Chưa kiểm tra' },
-    { id: 'Đang kiểm tra-1', name: 'Đang kiểm tra' },
-    { id: 'Đã kiểm tra-2', name: 'Đã kiểm tra' }
-  ];
-  cleanStatuses = [
-    { id: 'Chưa kiểm tra-0', name: 'Chưa kiểm tra' },
-    { id: 'Đang kiểm tra-1', name: 'Đang kiểm tra' },
-    { id: 'Đã kiểm tra-2', name: 'Đã kiểm tra' }
-  ];
-  roomStatuses = [
-    { id: 'Phòng trống-0', name: 'Phòng trống' },
-    { id: 'Khách trong phòng-1', name: 'Khách trong phòng' },
-    { id: 'Khách ra ngoài-2', v: 'Khách ra ngoài' }
-  ];
+  hotels: any = [];
+  checkStatuses: any = [];
+  cleanStatuses: any = [];
+  roomStatuses: any = [];
+  floors: any = [];
+  rooms: any = [];
+  customers: any = [];
+  users: any = [];
 
-  floors = [
-    { id: 'Tầng 1-0', name: 'Tầng 1' },
-    { id: 'Tầng 2-1', name: 'Tầng 2' },
-    { id: 'Tầng 3-2', name: 'Tầng 3' }
-  ];
-  rooms: any;
-  customers: any;
-  users: any;
   ngOnInit(): void {
 
     // get hotel
@@ -51,7 +31,6 @@ export class ScheduleJobComponent implements OnInit {
     })
 
     // get room status
-
     this.scheduleJobService.getRoomStatus().subscribe((res: any) => {
       this.roomStatuses = res.data;
     })
@@ -102,5 +81,17 @@ export class ScheduleJobComponent implements OnInit {
       room.assignments = [{}];
     }
     room.assignments[0].suppervisor = suppervisor;
+  }
+
+  changeRoomStatus(room: any, roomStatus: any) {
+    room.room_status = roomStatus;
+  }
+
+  changeCleanStatus(room: any, cleanStatus: any) {
+    room.clean_status = cleanStatus;
+  }
+
+  changeCheckStatus(room: any, checkStatus: any) {
+    room.check_status = checkStatus;
   }
 }
