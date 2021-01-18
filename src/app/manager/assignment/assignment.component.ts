@@ -115,22 +115,19 @@ export class AssignmentComponent implements OnInit {
   ];
 
   chooses = [
-    {value: 'Ngày-0', viewValue: 'Ngày'},
-    {value: 'Tuần-1', viewValue: 'Tuần'},
-    {value: 'Tháng-2', viewValue: 'Tháng'}
+    { value: 'Ngày-0', viewValue: 'Ngày' },
+    { value: 'Tuần-1', viewValue: 'Tuần' },
+    { value: 'Tháng-2', viewValue: 'Tháng' }
   ];
-  rooms: any;
-  publicAreas: any;
-  users: any;
+  rooms: any = [];
+  publicAreas:  any = [];
+  users:  any = [];
 
   ngOnInit(): void {
 
 
     // get rooms
-    this.assignmentService.getRoom().subscribe((res: any) => {
-      this.rooms = res.data;
-      console.log(this.rooms)
-    })
+    this.loadRooms();
 
     this.assignmentService.getPublicArea().subscribe((res: any) => {
       this.publicAreas = res.data;
@@ -145,11 +142,41 @@ export class AssignmentComponent implements OnInit {
       this.users = res.data;
     })
   }
-  changeEmployee(room: any, employee: any) {
+
+  loadRooms() {
+    this.assignmentService.getRoom().subscribe((res: any) => {
+      this.rooms = res.data;
+      console.log(this.rooms)
+    })
+  }
+  employeeSelected: any;
+
+  changeEmployee(room: any, supervisor: any) {
     if (!room.assignments || room.assignments.length === 0) {
       room.assignments = [{}];
     }
 
-    room.assignments[0].employee = employee;
+    room.assignments[0].supervisor = supervisor;
+    console.log(room);
+  }
+changeCleaner(room: any, employee: any) {
+  console.log(room);
+  if (!room.assignments || room.assignments.length === 0) {
+    room.assignments = [{}];
+  }
+
+  room.assignments[0].employee = employee;
+  console.log(room);
+}
+  employeeSelectionChange(employee: any) {
+    console.log("assignment employee " + employee.id);
+    this.employeeSelected = employee;
+    this.loadDataByEmployee();
+  }
+
+  loadDataByEmployee() {
+    
+    // solve room assignment status (check color and disable button mark)
+   // this.rooms.map((r: any) => r.assignments[0])
   }
 }

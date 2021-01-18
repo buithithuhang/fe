@@ -3,7 +3,7 @@
 
   <div class="inline">
     <div class="employee">
-      <app-manager-employee></app-manager-employee>
+      <app-manager-employee (employeeSelectionChanged)="employeeSelectionChange($event)"></app-manager-employee>
     </div>
     <div class="asssign">
       <div class="filter-bar inline">
@@ -76,8 +76,8 @@
                             </mat-option>
                           </mat-select>
                         </mat-form-field>
-                        <button class="done" mat-button>
-                          <mat-icon color="warn">done</mat-icon>
+                        <button class="done" mat-button (click)="changeCleaner(room, employeeSelected)">
+                          <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'blue' : 'red') }">done</mat-icon>
                         </button>
                       </div>
                     </mat-list-item>
@@ -129,8 +129,8 @@
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
-                          <button class="done" mat-button>
-                            <mat-icon color="blue">done</mat-icon>
+                          <button class="done" mat-button (click)="changeCleaner(room, employeeSelected)">
+                            <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'blue' : 'red') }">done</mat-icon>
                           </button>
                         </div>
                       </mat-list-item>
