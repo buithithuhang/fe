@@ -77,7 +77,7 @@
                           </mat-select>
                         </mat-form-field>
                         <button class="done" mat-button (click)="changeCleaner(room, employeeSelected)">
-                          <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'blue' : 'red') }">done</mat-icon>
+                          <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'green' : 'red') }">done</mat-icon>
                         </button>
                       </div>
                     </mat-list-item>
@@ -130,7 +130,7 @@
                             </mat-select>
                           </mat-form-field>
                           <button class="done" mat-button (click)="changeCleaner(room, employeeSelected)">
-                            <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'blue' : 'red') }">done</mat-icon>
+                            <mat-icon [ngStyle]="{ 'color': (room.assignments && room.assignments[0]?.employee && room.assignments[0].employee.id == employeeSelected?.id ? 'green' : 'red') }">done</mat-icon>
                           </button>
                         </div>
                       </mat-list-item>
