@@ -25,7 +25,8 @@ export class CreatePublicAreaComponent implements OnInit {
         // get properites
         this.properties = this.data.properties;
         this.columns = Object.keys(this.data.properties);
-        this.dataSource = this.data.dataSource || {};
+        this.dataSource = this.data.dataSource || {};       
+        this.dataSource.floors_id = this.data.fid;
         console.log(this.dataSource)
         // set to form control
         // get relationship data

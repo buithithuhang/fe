@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./superadmin.component.scss']
 })
 export class SuperadminComponent implements OnInit {
-
+  isShowCategoryMenu = true;
   constructor() { }
 
   ngOnInit(): void {

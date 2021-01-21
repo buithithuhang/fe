@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HotelService } from '../hotel.service';
+import { UserService } from '../user.service';
 
 @Component({
-    selector: 'create-hotel',
+    selector: 'create-user',
     templateUrl: 'create.component.html',
     styleUrls: ['create.component.scss']
 })

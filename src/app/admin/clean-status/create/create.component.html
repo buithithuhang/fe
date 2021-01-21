@@ -1,5 +1,5 @@
-<div> create work!</div>
-<div>
+<div></div>
+<div class="a">
   <div *ngFor="let column of columns">
     <div *ngIf="column !== 'id'">
       <div *ngIf="properties[column].relationship">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-<div mat-dialog-actions>
+<div class="b" mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Đóng</button>
   <button mat-button cdkFocusInitial (click)="create()">Lưu</button>
 </div>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HotelService } from './hotel.service';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateComponent } from './create/create.component';
-import { DeleteComponent } from './delete/delete.component';
+import { CreateHotelComponent } from './create/create.component';
+import { DeleteHotelComponent } from './delete/delete.component';
 
 @Component({
   selector: 'app-hotel',
@@ -47,7 +47,7 @@ export class HotelComponent implements OnInit {
   expandedElement: any | null | undefined;
   properties: any;
   openDialog(dataSource?: any): void {
-    const dialogRef = this.dialog.open(CreateComponent, {
+    const dialogRef = this.dialog.open(CreateHotelComponent, {
       width: '550px',
       data: {properties: this.properties, dataSource}
     });
@@ -59,7 +59,7 @@ export class HotelComponent implements OnInit {
     });
   }
   confirmDialog(dataSource?: any): void {
-    const dialogRef = this.dialog.open(DeleteComponent, {
+    const dialogRef = this.dialog.open(DeleteHotelComponent, {
       width: '550px',
       data: {properties: this.properties, dataSource}
     });

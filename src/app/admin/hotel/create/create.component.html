@@ -1,10 +1,10 @@
 <div></div>
-<div>
+<div class="a">
   <div *ngFor="let column of columns">
     <div *ngIf="column !== 'id'">
-      <div *ngIf="properties[column].relationship">
+      <div  *ngIf="properties[column].relationship">
         <div *ngIf="properties[column].datasource">
-          <mat-form-field appearance="fill">
+          <mat-form-field  appearance="fill">
             <mat-label> {{properties[column].alias}}</mat-label>
             <mat-select [(ngModel)]="dataSource[column]">
               <mat-option *ngFor="let food of properties[column].datasource" [value]="food.id">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-<div mat-dialog-actions>
+<div class="b" mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Đóng</button>
   <button mat-button cdkFocusInitial (click)="create()">Lưu</button>
 </div>

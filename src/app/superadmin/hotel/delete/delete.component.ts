@@ -8,10 +8,10 @@ import { HotelService } from '../hotel.service';
     styleUrls: ['delete.component.scss']
 })
 
-export class DeleteComponent implements OnInit {
+export class DeleteHotelComponent implements OnInit {
     constructor(
         private service: HotelService,
-        public dialogRef: MatDialogRef<DeleteComponent>,
+        public dialogRef: MatDialogRef<DeleteHotelComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() { }

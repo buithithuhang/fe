@@ -143,15 +143,7 @@
                     <mat-icon [style.color]="status.color">done_all</mat-icon>{{status.name}}
                   </button>
                 </div>
-                <!-- <button mat-menu-item>
-                  <mat-icon color="warn">done_all</mat-icon>Chưa kiểm tra
-                </button>
-                <button mat-menu-item>
-                  <mat-icon color="primary">done_all</mat-icon>Đang kiểm tra
-                </button>
-                <button mat-menu-item>
-                  <mat-icon style="color:green;">done_all</mat-icon>Đã kiểm tra
-                </button> -->
+     
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="menuChecker">
                 {{room.assignments && room.assignments[0]?.suppervisor?.name}}

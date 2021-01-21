@@ -8,10 +8,10 @@ import { HotelService } from '../hotel.service';
     styleUrls: ['create.component.scss']
 })
 
-export class CreateComponent implements OnInit {
+export class CreateHotelComponent implements OnInit {
     constructor(
         private service: HotelService,
-        public dialogRef: MatDialogRef<CreateComponent>,
+        public dialogRef: MatDialogRef<CreateHotelComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {

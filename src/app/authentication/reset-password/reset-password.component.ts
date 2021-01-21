@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
+  newpassword: string = "";
+  password: string = "";
+  confirm: string = "";
   constructor() { }
 
   ngOnInit(): void {

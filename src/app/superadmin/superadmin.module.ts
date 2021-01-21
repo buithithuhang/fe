@@ -8,10 +8,13 @@ import { MaterialModule } from '../material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { HotelService } from './hotel/hotel.service';
 
 
 @NgModule({
-  declarations: [TemplateManagementComponent, SuperadminComponent],
+  declarations: [TemplateManagementComponent, SuperadminComponent
+  ],
+
   imports: [
     CommonModule,
     SuperadminRoutingModule,
@@ -20,6 +23,9 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+  ],
+  providers: [
+    
   ]
 })
 export class SuperadminModule { }

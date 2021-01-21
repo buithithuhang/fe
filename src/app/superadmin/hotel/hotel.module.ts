@@ -5,13 +5,13 @@ import { HotelRoutingModule } from './hotel-routing.module';
 import { MaterialModule } from '../../material-module';
 import { HotelService } from './hotel.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateComponent } from './create/create.component';
+import { CreateHotelComponent } from './create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DeleteComponent } from './delete/delete.component';
+import { DeleteHotelComponent } from './delete/delete.component';
  
 
 @NgModule({
-  declarations: [HotelComponent, CreateComponent, DeleteComponent],
+  declarations: [HotelComponent, CreateHotelComponent, DeleteHotelComponent],
   imports: [
     CommonModule,
     HotelRoutingModule,
@@ -22,7 +22,7 @@ import { DeleteComponent } from './delete/delete.component';
   ],
   providers: [HotelService],
   entryComponents: [
-    CreateComponent, DeleteComponent
+    CreateHotelComponent, DeleteHotelComponent
   ],
 })
 export class HotelModule { }

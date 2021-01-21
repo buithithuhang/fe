@@ -1,5 +1,5 @@
 <div></div>
-<div *ngIf="!dataSource.id">
+<div class="a" *ngIf="!dataSource.id">
 <mat-form-field>
   <mat-label> Email</mat-label>
   <input matInput [(ngModel)]="email">
@@ -29,7 +29,7 @@
     </div>
   </div>
 </div>
-<div mat-dialog-actions>
+<div class="b" mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Đóng</button>
   <button mat-button cdkFocusInitial (click)="create()">Lưu</button>
 </div>
