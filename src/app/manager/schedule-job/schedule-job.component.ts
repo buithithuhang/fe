@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ScheduleJobService } from './schedule-job.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-schedule-job',
@@ -8,16 +11,27 @@ import { ScheduleJobService } from './schedule-job.service';
 })
 export class ScheduleJobComponent implements OnInit {
 
-  constructor(private scheduleJobService: ScheduleJobService) { }
+  constructor(
+    private scheduleJobService: ScheduleJobService,
+    ) { }
 
   hotels: any = [];
+  hotelId: any;
+
   checkStatuses: any = [];
   cleanStatuses: any = [];
   roomStatuses: any = [];
+
   floors: any = [];
+  floorsId: any;
+
   rooms: any = [];
   customers: any = [];
   users: any = [];
+
+  dataSource: any;
+  columns: any;
+  properties: any;
 
   ngOnInit(): void {
 
@@ -46,10 +60,8 @@ export class ScheduleJobComponent implements OnInit {
     })
 
     // get rooms
-    this.scheduleJobService.getRoom().subscribe((res: any) => {
-      this.rooms = res.data;
-      console.log(this.rooms)
-    })
+    this.loadRooms();
+
     // get  Customer
     this.scheduleJobService.getCustomer().subscribe((res: any) => {
       this.customers = res.data;
@@ -59,6 +71,18 @@ export class ScheduleJobComponent implements OnInit {
     // get users
     this.scheduleJobService.getUsers().subscribe((res: any) => {
       this.users = res.data;
+    })
+  }
+  loadRooms() {
+    this.scheduleJobService.getRoom(this.floorsId).subscribe((res: any) => {
+      this.rooms = res.data;
+      console.log(this.rooms)
+    })
+  }
+   
+  loadFloors() {
+    this.scheduleJobService.getFloors(this.hotelId).subscribe((res: any) => {
+      this.floors = res.data;
     })
   }
 

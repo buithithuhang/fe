@@ -25,7 +25,6 @@
 
         </div>
         <div *ngIf="column === 'action'">
-          <button mat-stroked-button [routerLink]="['/admin/room',id, element.id]"> Phòng </button>
           <button mat-stroked-button (click)="openDialog(element)" color="">
             <mat-icon aria-hidden="false" aria-label="Example home icon">construction</mat-icon>
           </button>

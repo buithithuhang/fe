@@ -1,5 +1,24 @@
 <div></div>
 <div class="a">
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Khách sạn</mat-label>
+    <mat-select [(value)]="hotelId" (selectionChange)="loadFloors()" >
+      <mat-option *ngFor="let food of hotels" [value]="food.id">
+        {{food.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="choose" appearance="fill">
+    <mat-label>Tầng</mat-label>
+    <mat-select [(value)]="floorsId" (selectionChange)="loadRef( )">
+      <mat-option *ngFor="let food of floors" [value]="food.id">
+        {{food.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <div *ngFor="let column of columns">
     <div *ngIf="column !== 'id'">
       <div *ngIf="properties[column].relationship">

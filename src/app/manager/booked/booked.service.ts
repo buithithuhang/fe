@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BookedService {
     table = 'booked';
+    hostname = "http://localhost:3001";
     url = 'http://localhost:3001/booked';
     propertiesUrl = ''
     constructor(private http: HttpClient) { }
@@ -36,8 +37,16 @@ export class BookedService {
         };
         return this.http.delete(`${this.url}/delete/${data.id}`, { headers });
     }
-    getRel(table: string) {
+    getRel(table: string, floorsId?: string) {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`http://localhost:3001/${table}/all`, { headers });
+        return this.http.get(`http://localhost:3001/${table}/all?floors_id=${floorsId || ''}`, { headers });
+    }
+    getHotel(): any {
+        let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
+        return this.http.get(`${this.hostname}/hotel/all`, { headers });
+    }
+    getFloors(hotelId?: string): any {
+        let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
+        return this.http.get(`${this.hostname}/floors/all?hotel_id=${hotelId || ''}`, { headers });
     }
 }

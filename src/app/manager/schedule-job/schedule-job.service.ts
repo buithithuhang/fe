@@ -9,16 +9,21 @@ export class ScheduleJobService {
 
     }
     table = 'hotel';
+    hostname = "http://localhost:3001";
     url = 'http://localhost:3001';
     propertiesUrl = ''
 
     getHotel(): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`${this.url}/hotel/all`, { headers });
+        return this.http.get(`${this.hostname}/hotel/all`, { headers });
     }
-    getFloors(): any {
+    getRel(table: string, hotelId?: string) {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`${this.url}/floors/all`, { headers });
+        return this.http.get(`http://localhost:3001/${table}/all?floors_id=${hotelId}`, { headers });
+    }
+    getFloors(hotelId?: string): any {
+        let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
+        return this.http.get(`${this.hostname}/floors/all?hotel_id=${hotelId || ''}`, { headers });
     }
     getClean(): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
@@ -32,9 +37,9 @@ export class ScheduleJobService {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
         return this.http.get(`${this.url}/public-area/all`, { headers });
     }
-    getRoom(): any {
+    getRoom(floorsId?: any): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }
-        return this.http.get(`${this.url}/room/all`, { headers });
+        return this.http.get(`${this.url}/room/all?floors_id=${floorsId || ''}`, { headers });
     }
     getRoomStatus(): any {
         let headers = { authorization: localStorage.getItem('authorization') || '', site_id: localStorage.getItem('site_id') || '' }

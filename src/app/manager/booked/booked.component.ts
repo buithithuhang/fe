@@ -16,6 +16,9 @@ export class BookedComponent implements OnInit {
 
   }
 
+  hotels: any = [];
+  
+
   ngOnInit(): void {
     //get table properties
     this.service.getProperties().subscribe((res: any) => {

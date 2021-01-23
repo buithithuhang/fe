@@ -4,7 +4,7 @@
   <div class="filter-bar inline">
     <mat-form-field appearance="fill">
       <mat-label>Khách sạn</mat-label>
-      <mat-select>
+      <mat-select [(value)]="hotelId" (selectionChange)="loadFloors()">
         <mat-option *ngFor="let food of hotels" [value]="food.id">
           {{food.name}}
         </mat-option>
@@ -13,7 +13,7 @@
 
     <mat-form-field class="choose" appearance="fill">
       <mat-label>Tầng</mat-label>
-      <mat-select>
+      <mat-select [(value)]="floorsId" (selectionChange)="loadRooms( )">
         <mat-option *ngFor="let food of floors" [value]="food.id">
           {{food.name}}
         </mat-option>
